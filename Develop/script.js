@@ -63,8 +63,7 @@ function generatePassword() {
     
     //the array needs to be flattened
     arrchar = [].concat.apply([], arrchar);
-    var randchar;
-    
+
     //Now to make the password!
     var arrpasscode = [];
     if (arrchar.lenght<1) {
@@ -72,10 +71,7 @@ function generatePassword() {
       return null;
     } else {
       for (var i = 0; i < numCharacter; i++) {
-        //randchar = Math.floor(Math.random() * Math.floor(arrchar.length));
-        //var randnum = parseInt(randchar);
-        //arrpasscode = arrpasscode.concat([arrchar[randnum]]); 
-        
+
         arrpasscode = arrpasscode.concat([arrchar[parseInt(Math.floor(Math.random() * Math.floor(arrchar.length)))]]); 
       }
     }
