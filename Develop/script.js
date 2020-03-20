@@ -23,9 +23,7 @@ function generatePassword() {
         if (numCharacter < 8 || numCharacter > 128) {
           i=0
           alert("Input is not in the specified range of values");
-        } else {i=1
-        alert("success")
-        }
+        } else {i=1}
       }
     }
 
@@ -74,9 +72,11 @@ function generatePassword() {
       return null;
     } else {
       for (var i = 0; i < numCharacter; i++) {
-        randchar = Math.floor(Math.random() * Math.floor(arrchar.length));
-        var randnum = parseInt(randchar);
-        arrpasscode = arrpasscode.concat([arrchar[randnum]]); 
+        //randchar = Math.floor(Math.random() * Math.floor(arrchar.length));
+        //var randnum = parseInt(randchar);
+        //arrpasscode = arrpasscode.concat([arrchar[randnum]]); 
+        
+        arrpasscode = arrpasscode.concat([arrchar[parseInt(Math.floor(Math.random() * Math.floor(arrchar.length)))]]); 
       }
     }
     console.log(arrpasscode);
