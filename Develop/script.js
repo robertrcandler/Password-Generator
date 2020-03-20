@@ -11,13 +11,14 @@ function generatePassword() {
       //a prompt for how many characters the user would like
       //must be 8-128 characters
       var Characterprompt  = prompt("How many characters in the password, must be between 8 and 128.");
-      //make answer number type
-      var numCharacter = parseInt(Characterprompt);
+      
       //Test is input is number
-      if (isNaN(numCharacter)=true) {
+      if (isNaN(Characterprompt)) {
         i=0
         alert("Input is not a number, please input valid number");
       } else {
+        //make answer number type
+        var numCharacter = parseInt(Characterprompt);
         //Test number of characters is in range
         if (numCharacter < 8 || numCharacter > 128) {
           i=0
