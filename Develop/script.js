@@ -1,12 +1,8 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-//creating password character arrays
-var arrlow;
-var arrup;
-var arrnum;
-var arrsym;
-var arrchar = {arrlow,arrup,arrnum,arrsym}
+//creating password character array
+let arrchar = [];
 
 function generatePassword() {
   //these are my prompts 
@@ -26,7 +22,9 @@ function generatePassword() {
         if (numCharacter < 8 || numCharacter > 128) {
           i=0
           alert("Input is not in the specified range of values");
-        } else {i=1}
+        } else {i=1
+        alert("success")
+        }
       }
     }
 
@@ -37,19 +35,15 @@ function generatePassword() {
     //create lowercase array
     if (lowercase=true) {
       var strlow = "abcdefghijklmnopqrstuvwxyz";
-      arrlow = strlow.split("");
-    } else {
-      arrlow = "";
-    }
+      arrchar.push(strlow.split(""));
+    } 
   //ask the user if they want uppercase
     //store it in a variable
     var uppercase = confirm("Do you want to use uppercase characters?");
     //create uppercase array
     if (uppercase=true) {
       var strup = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-      arrup = strlow.split("");
-    } else {
-      arrup = "";
+      arrchar.push(strup.split(""));
     }
   //ask the user if they want numeric
     //store it in a variable
@@ -57,9 +51,7 @@ function generatePassword() {
     //create uppercase array
     if (numbers=true) {
       var strnum = "0123456789";
-      arrnum = strlow.split("");
-    } else {
-      arrnum = "";
+      arrchar.push(strnum.split(""));
     }
   //ask the user if they want special characters
     //store it in a variable
@@ -67,10 +59,20 @@ function generatePassword() {
     //create uppercase array
     if (symbols=true) {
       var strsym = "!#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~";
-      arrsym = strlow.split("");
-    } else {
-      arrsym = "";
+      arrchar.push(strsym.split(""));
     }
+    
+    //Now to make the password!
+    if (arrchar.lenght<1) {
+      alert("You did not select any characters");
+      return null;
+    } else {
+      for (var i = 0; i < numCharacter; i++) {
+        var arrpasscode = passcode.push(arrchar[Math.floor(Math.random() * Math.floor(arrchar.length))]); 
+      }
+    }
+    var passcode = arrpasscode.join("");
+    return passcode;
 }
 // Write password to the #password input
 
