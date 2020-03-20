@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Password Generator</title>
+    <!--added bootstrap-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -26,6 +29,38 @@
         </div>
         <div class="card-footer">
           <button id="generate" class="btn">Generate Password</button>
+          <!--added copy to clipboard button-->
+          <button id="copylink" class="btn">Copy to Clipboard</button>
+          <!--check for numbers-->
+          <br>
+          <input type="checkbox" id="numBox">
+          <label for="numBox">
+            Numbers
+          </label>
+          <!--Check for Symbols-->
+          <input type="checkbox" id="Symbols">
+          <label for="Symbols">
+            Symbols
+          </label>
+          <!--check for lowercase letters-->
+          <input type="checkbox" id="lowercase">
+          <label for="lowercase">
+            Lowercase
+          </label>
+          <!--Check for Uppercase letters-->
+          <input type="checkbox" id="uppercase">
+          <label for="uppercase">
+            Uppercase
+          </label>
+          <!--Customize # of characters-->
+          <br>
+          <input type="number" min="0" value="10" 
+            step="1" id="characters" style="width:3em" 
+            oninput="document.getElementById('by-length')
+            .checked=true;">
+          <label for="characters">
+            Number of characters
+          </label>
         </div>
       </div>
     </div>
