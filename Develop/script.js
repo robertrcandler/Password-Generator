@@ -34,7 +34,7 @@ function generatePassword() {
     //store it in a variable
     var lowercase = confirm("Do you want to use lowercase characters?");
     //create lowercase array
-    if (lowercase=true) {
+    if (lowercase) {
       var strlow = "abcdefghijklmnopqrstuvwxyz";
       arrchar.push(strlow.split(""));
     } 
@@ -44,7 +44,7 @@ function generatePassword() {
     //create uppercase array
     if (uppercase=true) {
       var strup = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-      arrchar.push(strup.split(""));
+      arrchar.push(strup.split(''));
     }
   //ask the user if they want numeric
     //store it in a variable
@@ -52,7 +52,7 @@ function generatePassword() {
     //create uppercase array
     if (numbers=true) {
       var strnum = "0123456789";
-      arrchar.push(strnum.split(""));
+      arrchar.push(strnum.split(''));
     }
   //ask the user if they want special characters
     //store it in a variable
@@ -60,19 +60,28 @@ function generatePassword() {
     //create uppercase array
     if (symbols=true) {
       var strsym = "!#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~";
-      arrchar.push(strsym.split(""));
+      arrchar.push(strsym.split(''));
     }
     
+    //the array needs to be flattened
+    arrchar = [].concat.apply([], arrchar);
+    var randchar;
+    
     //Now to make the password!
+    var arrpasscode = [];
     if (arrchar.lenght<1) {
       alert("You did not select any characters");
       return null;
     } else {
       for (var i = 0; i < numCharacter; i++) {
-        var arrpasscode = passcode.push(arrchar[Math.floor(Math.random() * Math.floor(arrchar.length))]); 
+        randchar = Math.floor(Math.random() * Math.floor(arrchar.length));
+        var randnum = parseInt(randchar);
+        arrpasscode = arrpasscode.concat([arrchar[randnum]]); 
       }
     }
-    var passcode = arrpasscode.join("");
+    console.log(arrpasscode);
+    var passcode = arrpasscode.join('');
+    console.log(passcode);
     return passcode;
 }
 // Write password to the #password input
